@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +13,9 @@
 <h1>⚡ AI Electrical Engineer</h1>
 
 <p>Welcome to my first AI engineering project.</p>
+
+
+<!-- OHM'S LAW CALCULATOR -->
 
 <h2>🔌 Ohm's Law Calculator</h2>
 
@@ -32,46 +36,60 @@ Calculate Current
 <h3 id="currentResult"></h3>
 
 
-<h2>🔋 Υπολογιστής Ενέργειας</h2>
+<!-- POWER CALCULATOR -->
 
-<label>Τάση (V):</label>
+<h2>🔋 Power Calculator</h2>
+
+<label>Voltage (V):</label>
 <input type="number" id="powerVoltage">
 
 <br><br>
 
-<label>Τρέχον (A):</label>
+<label>Current (A):</label>
 <input type="number" id="powerCurrent">
 
 <br><br>
 
 <button onclick="calculatePower()">
-Υπολογισμός ισχύος
-</κουμπί>
+Calculate Power
+</button>
 
 <h3 id="powerResult"></h3>
 
 
+<!-- RESISTOR CALCULATOR -->
+
 <h2>📐 Resistor Calculator</h2>
 
-<button>Resistor Calculator</button>
+<button>
+Resistor Calculator
+</button>
 
+
+<!-- AI ASSISTANT -->
 
 <h2>🤖 AI Engineering Assistant</h2>
 
 <p>Ask an electrical engineering question.</p>
 
 
+<!-- JAVASCRIPT -->
+
 <script>
 
 function calculateCurrent() {
 
-const voltage = Number(document.getElementById("voltage").value);
+const voltage =
+Number(document.getElementById("voltage").value);
 
-const resistance = Number(document.getElementById("resistance").value);
+const resistance =
+Number(document.getElementById("resistance").value);
 
 if (voltage === 0 || resistance === 0) {
+
 document.getElementById("currentResult").innerText =
 "Please enter voltage and resistance.";
+
 return;
 }
 
@@ -81,11 +99,22 @@ document.getElementById("currentResult").innerText =
 "Current = " + current + " A";
 }
 
+
 function calculatePower() {
 
-const voltage = Number(document.getElementById("powerVoltage").value);
+const voltage =
+Number(document.getElementById("powerVoltage").value);
 
-const current = Number(document.getElementById("powerCurrent").value);
+const current =
+Number(document.getElementById("powerCurrent").value);
+
+if (voltage === 0 || current === 0) {
+
+document.getElementById("powerResult").innerText =
+"Please enter voltage and current.";
+
+return;
+}
 
 const power = voltage * current;
 
@@ -93,5 +122,8 @@ document.getElementById("powerResult").innerText =
 "Power = " + power + " W";
 }
 
+</script>
+
 </body>
+
 </html>
