@@ -32,9 +32,7 @@ Smart engineering tools powered by code and AI
 
 <h2>🔌 Ohm's Law Calculator</h2>
 
-<label for="voltage">
-Voltage (V)
-</label>
+<label>Voltage (V)</label>
 
 <input
 type="number"
@@ -42,17 +40,13 @@ id="voltage"
 placeholder="Enter voltage"
 >
 
-
-<label for="resistance">
-Resistance (Ω)
-</label>
+<label>Resistance (Ω)</label>
 
 <input
 type="number"
 id="resistance"
 placeholder="Enter resistance"
 >
-
 
 <button onclick="calculateCurrent()">
 Calculate Current
@@ -66,15 +60,13 @@ id="currentResult">
 </div>
 
 
-<!-- POWER CALCULATOR -->
+<!-- POWER -->
 
 <div class="calculator">
 
 <h2>🔋 Power Calculator</h2>
 
-<label for="powerVoltage">
-Voltage (V)
-</label>
+<label>Voltage (V)</label>
 
 <input
 type="number"
@@ -82,17 +74,13 @@ id="powerVoltage"
 placeholder="Enter voltage"
 >
 
-
-<label for="powerCurrent">
-Current (A)
-</label>
+<label>Current (A)</label>
 
 <input
 type="number"
 id="powerCurrent"
 placeholder="Enter current"
 >
-
 
 <button onclick="calculatePower()">
 Calculate Power
@@ -113,12 +101,42 @@ id="powerResult">
 <h2>📐 Resistor Calculator</h2>
 
 <p>
-Coming soon...
+Calculate the equivalent resistance of
+three resistors connected in series.
 </p>
 
-<button>
-Resistor Calculator
+<label>Resistor 1 (Ω)</label>
+
+<input
+type="number"
+id="r1"
+placeholder="e.g. 100"
+>
+
+<label>Resistor 2 (Ω)</label>
+
+<input
+type="number"
+id="r2"
+placeholder="e.g. 220"
+>
+
+<label>Resistor 3 (Ω)</label>
+
+<input
+type="number"
+id="r3"
+placeholder="e.g. 330"
+>
+
+<button onclick="calculateResistance()">
+Calculate Resistance
 </button>
+
+<div
+class="result"
+id="resistanceResult">
+</div>
 
 </div>
 
@@ -144,10 +162,10 @@ Coming Soon
 </div>
 
 
-<!-- JAVASCRIPT -->
-
 <script>
 
+
+// OHM'S LAW
 
 function calculateCurrent() {
 
@@ -173,35 +191,29 @@ return;
 }
 
 
-const current =
-voltage / resistance;
+const current = voltage / resistance;
 
 
 document.getElementById(
 "currentResult"
 ).innerText =
-"Current = " +
-current +
-" A";
+"Current = " + current + " A";
 }
 
 
+
+// POWER
 
 function calculatePower() {
 
 const voltage =
 Number(
-document.getElementById(
-"powerVoltage"
-).value
+document.getElementById("powerVoltage").value
 );
-
 
 const current =
 Number(
-document.getElementById(
-"powerCurrent"
-).value
+document.getElementById("powerCurrent").value
 );
 
 
@@ -216,16 +228,58 @@ return;
 }
 
 
-const power =
-voltage * current;
+const power = voltage * current;
 
 
 document.getElementById(
 "powerResult"
 ).innerText =
-"Power = " +
-power +
-" W";
+"Power = " + power + " W";
+}
+
+
+
+// RESISTORS IN SERIES
+
+function calculateResistance() {
+
+const r1 =
+Number(
+document.getElementById("r1").value
+);
+
+const r2 =
+Number(
+document.getElementById("r2").value
+);
+
+const r3 =
+Number(
+document.getElementById("r3").value
+);
+
+
+if (r1 <= 0 || r2 <= 0 || r3 <= 0) {
+
+document.getElementById(
+"resistanceResult"
+).innerText =
+"Please enter all three resistor values.";
+
+return;
+}
+
+
+const totalResistance =
+r1 + r2 + r3;
+
+
+document.getElementById(
+"resistanceResult"
+).innerText =
+"Total Resistance = "
++ totalResistance
++ " Ω";
 }
 
 
