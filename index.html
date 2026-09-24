@@ -1,28 +1,73 @@
 <!DOCTYPE html>
-<html lang="el">
-<κεφαλίδα>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width="device-width, initial-scale=1.0">
-<title>Ηλεκτρολόγος Μηχανικός Τεχνητής Νοημοσύνης</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Electrical Engineer</title>
 </head>
 
 <body>
 
-<h1>⚡ Ηλεκτρολόγος Μηχανικός Τεχνητής Νοημοσύνης</h1>
+<h1>⚡ AI Electrical Engineer</h1>
 
-<p>Καλώς ήρθατε στο πρώτο μου έργο μηχανικής τεχνητής νοημοσύνης.</p>
+<p>Welcome to my first AI engineering project.</p>
 
-<h2>Εργαλεία Μηχανικής</h2>
+<h2>🔌 Ohm's Law Calculator</h2>
 
-<button>Υπολογιστής Νόμου του Ohm</button>
+<label>Voltage (V):</label>
+<input type="number" id="voltage">
 
-<button>Υπολογιστής Ενέργειας</button>
+<br><br>
 
-<button>Υπολογιστής Αντίστασης</button>
+<label>Resistance (Ω):</label>
+<input type="number" id="resistance">
 
-<h2>🤖 Βοηθός Μηχανικού Τεχνητής Νοημοσύνης</h2>
+<br><br>
 
-<p>Υποβάλετε μια ερώτηση σχετικά με την ηλεκτρολογία.</p>
+<button onclick="calculateCurrent()">
+Calculate Current
+</button>
+
+<h3 id="currentResult"></h3>
+
+
+<h2>🔋 Power Calculator</h2>
+
+<button>Power Calculator</button>
+
+
+<h2>📐 Resistor Calculator</h2>
+
+<button>Resistor Calculator</button>
+
+
+<h2>🤖 AI Engineering Assistant</h2>
+
+<p>Ask an electrical engineering question.</p>
+
+
+<script>
+
+function calculateCurrent() {
+
+const voltage = Number(document.getElementById("voltage").value);
+
+const resistance = Number(document.getElementById("resistance").value);
+
+if (voltage === 0 || resistance === 0) {
+document.getElementById("currentResult").innerText =
+"Please enter voltage and resistance.";
+return;
+}
+
+const current = voltage / resistance;
+
+document.getElementById("currentResult").innerText =
+"Current = " + current + " A";
+}
+
+</script>
 
 </body>
 </html>
