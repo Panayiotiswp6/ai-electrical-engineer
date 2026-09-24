@@ -14,119 +14,220 @@ content="width=device-width, initial-scale=1.0">
 
 </head>
 
+
 <body>
+
+<div class="container">
 
 <h1>⚡ AI Electrical Engineer</h1>
 
-<p>Welcome to my first AI engineering project.</p>
+<p class="subtitle">
+Smart engineering tools powered by code and AI
+</p>
 
 
-<!-- OHM'S LAW CALCULATOR -->
+<!-- OHM'S LAW -->
+
+<div class="calculator">
 
 <h2>🔌 Ohm's Law Calculator</h2>
 
-<label>Voltage (V):</label>
-<input type="number" id="voltage">
+<label for="voltage">
+Voltage (V)
+</label>
 
-<br><br>
+<input
+type="number"
+id="voltage"
+placeholder="Enter voltage"
+>
 
-<label>Resistance (Ω):</label>
-<input type="number" id="resistance">
 
-<br><br>
+<label for="resistance">
+Resistance (Ω)
+</label>
+
+<input
+type="number"
+id="resistance"
+placeholder="Enter resistance"
+>
+
 
 <button onclick="calculateCurrent()">
 Calculate Current
 </button>
 
-<h3 id="currentResult"></h3>
+<div
+class="result"
+id="currentResult">
+</div>
+
+</div>
 
 
 <!-- POWER CALCULATOR -->
 
+<div class="calculator">
+
 <h2>🔋 Power Calculator</h2>
 
-<label>Voltage (V):</label>
-<input type="number" id="powerVoltage">
+<label for="powerVoltage">
+Voltage (V)
+</label>
 
-<br><br>
+<input
+type="number"
+id="powerVoltage"
+placeholder="Enter voltage"
+>
 
-<label>Current (A):</label>
-<input type="number" id="powerCurrent">
 
-<br><br>
+<label for="powerCurrent">
+Current (A)
+</label>
+
+<input
+type="number"
+id="powerCurrent"
+placeholder="Enter current"
+>
+
 
 <button onclick="calculatePower()">
 Calculate Power
 </button>
 
-<h3 id="powerResult"></h3>
+<div
+class="result"
+id="powerResult">
+</div>
+
+</div>
 
 
 <!-- RESISTOR CALCULATOR -->
 
+<div class="calculator">
+
 <h2>📐 Resistor Calculator</h2>
+
+<p>
+Coming soon...
+</p>
 
 <button>
 Resistor Calculator
 </button>
 
+</div>
+
 
 <!-- AI ASSISTANT -->
 
+<div class="ai-section">
+
 <h2>🤖 AI Engineering Assistant</h2>
 
-<p>Ask an electrical engineering question.</p>
+<p>
+Ask an electrical engineering question
+and get an AI-powered explanation.
+</p>
+
+<button>
+Coming Soon
+</button>
+
+</div>
+
+
+</div>
 
 
 <!-- JAVASCRIPT -->
 
 <script>
 
+
 function calculateCurrent() {
 
 const voltage =
-Number(document.getElementById("voltage").value);
+Number(
+document.getElementById("voltage").value
+);
 
 const resistance =
-Number(document.getElementById("resistance").value);
+Number(
+document.getElementById("resistance").value
+);
+
 
 if (voltage === 0 || resistance === 0) {
 
-document.getElementById("currentResult").innerText =
+document.getElementById(
+"currentResult"
+).innerText =
 "Please enter voltage and resistance.";
 
 return;
 }
 
-const current = voltage / resistance;
 
-document.getElementById("currentResult").innerText =
-"Current = " + current + " A";
+const current =
+voltage / resistance;
+
+
+document.getElementById(
+"currentResult"
+).innerText =
+"Current = " +
+current +
+" A";
 }
+
 
 
 function calculatePower() {
 
 const voltage =
-Number(document.getElementById("powerVoltage").value);
+Number(
+document.getElementById(
+"powerVoltage"
+).value
+);
+
 
 const current =
-Number(document.getElementById("powerCurrent").value);
+Number(
+document.getElementById(
+"powerCurrent"
+).value
+);
+
 
 if (voltage === 0 || current === 0) {
 
-document.getElementById("powerResult").innerText =
+document.getElementById(
+"powerResult"
+).innerText =
 "Please enter voltage and current.";
 
 return;
 }
 
-const power = voltage * current;
 
-document.getElementById("powerResult").innerText =
-"Power = " + power + " W";
+const power =
+voltage * current;
+
+
+document.getElementById(
+"powerResult"
+).innerText =
+"Power = " +
+power +
+" W";
 }
+
 
 </script>
 
