@@ -265,71 +265,50 @@ function calculateResistance() {
 
 async function askAI() {
 
-    const question =
-        document.getElementById("aiQuestion").value.trim();
+const question =
+document.getElementById("aiQuestion").value.trim();
 
-    const result =
-        document.getElementById("aiResult");
+const result =
+document.getElementById("aiResult");
 
+if (!question) {
+result.innerText = "Please enter a question.";
+return;
+}
 
-    if (!question) {
+result.innerText = "🤖 Connecting to AI...";
 
-        result.innerText =
-            "Please enter a question.";
+try {
 
-        return;
-    }
+const response = await fetch(
+"https://a-engineer.pankouzaris.workers.dev",
+{
+method: "POST",
 
+headers: {
+"Content-Type": "application/json"
+},
 
-    result.innerText =
-        "🤖 Thinking...";
+body: JSON.stringify({
+question: question
+})
+}
+);
 
+const text = await response.text();
 
-    try {
+result.innerText =
+"STATUS: " +
+response.status +
+"\n\n" +
+text;
 
-        const response = await fetch(
-            "https://a-engineer.pankouzaris.workers.dev",
-            {
-                method: "POST",
+} catch (error) {
 
-                headers: {
-                    "Content-Type": "application/json"
-                },
-
-                body: JSON.stringify({
-                    question: question
-                })
-            }
-        );
-
-
-        const data = await response.json();
-
-
-        if (!response.ok) {
-
-            result.innerText =
-                "Error: " +
-                (data.error || "Something went wrong.");
-
-            return;
-        }
-
-
-        result.innerText =
-            data.answer;
-
-    }
-
-
-    catch (error) {
-
-        result.innerText =
-            "Could not connect to the AI.";
-
-        console.error(error);
-    }
-
+result.innerText =
+"CONNECTION ERROR:\n\n" +
+error.message;
+}
 }
 
 
