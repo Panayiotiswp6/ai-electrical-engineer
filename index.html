@@ -32,9 +32,23 @@ Calculate Current
 <h3 id="currentResult"></h3>
 
 
-<h2>🔋 Power Calculator</h2>
+<h2>🔋 Υπολογιστής Ενέργειας</h2>
 
-<button>Power Calculator</button>
+<label>Τάση (V):</label>
+<input type="number" id="powerVoltage">
+
+<br><br>
+
+<label>Τρέχον (A):</label>
+<input type="number" id="powerCurrent">
+
+<br><br>
+
+<button onclick="calculatePower()">
+Υπολογισμός ισχύος
+</κουμπί>
+
+<h3 id="powerResult"></h3>
 
 
 <h2>📐 Resistor Calculator</h2>
@@ -67,7 +81,17 @@ document.getElementById("currentResult").innerText =
 "Current = " + current + " A";
 }
 
-</script>
+function calculatePower() {
+
+const voltage = Number(document.getElementById("powerVoltage").value);
+
+const current = Number(document.getElementById("powerCurrent").value);
+
+const power = voltage * current;
+
+document.getElementById("powerResult").innerText =
+"Power = " + power + " W";
+}
 
 </body>
 </html>
